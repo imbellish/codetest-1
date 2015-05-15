@@ -61,7 +61,6 @@ var code = {
             n = ratioCatch.length;
             c = ratioCatch[n-1] + ratioCatch[n-2]
             ratio = ratioCatch[n-1] / c;
-            console.log(ratio);
             ratioCatch.push(c);
         }
         return ratio
@@ -83,7 +82,16 @@ var code = {
     // Using a binary search algorithm, search for the square root of a given number.
     // Do not use the built-in square root function.
     squareRoot: function(n) {
-        throw new Error("Not Implemented");
+        // up to four decimal places
+        // http://mathworld.wolfram.com/NewtonsIteration.html
+        // csrf: http://oeis.org/A002193
+
+        /* does not work within 5000ms */
+        var root;
+        while(root * root !== n){
+            root += 0.0004
+        }
+        return root;
     }
 };
 module.exports = code;
