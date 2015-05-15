@@ -3,7 +3,9 @@ using System;
 class Code {
     // Returns "Hello World!"
     public static string HelloWorld() {
-        throw new Exception("Not Implemented");
+        string hello;
+        hello = "Hello World!";
+        return hello;
     }
 
     // Take a single-spaced <sentence>, and capitalize every <n> word starting with <offset>.

@@ -1,17 +1,42 @@
 var code = {
     // Returns "Hello World!"
     helloWorld: function() {
-        throw new Error("Not Implemented");
+        var hello = "Hello World!"
+        return hello;
     },
 
     // Take a single-spaced <sentence>, and capitalize every <n> word starting with <offset>.
     capitalizeEveryNthWord: function(sentence, offset, n) {
-        throw new Error("Not Implemented");
+        
+        var sentence = sentence.split(' ');
+
+        for (var i = offset; i < sentence.length; i += n) {
+            var capitalizedWord;
+            var splitWord = sentence[i].split('');
+            var capitalizedLetter = splitWord[0].toUpperCase();
+
+            splitWord[0] = capitalizedLetter;
+            capitalizedWord = splitWord.join('');
+
+            sentence[i] = capitalizedWord;
+        };
+
+        return sentence.join(' ');
     },
     
     // Determine if a number is prime
     isPrime: function(n) {
-        throw new Error("Not Implemented");
+        if (n < 1){
+            return false
+        } else if (n === 1){
+            return false
+        } else if (n === 2){
+            return true
+        } else if (n % n === 0 & n % 3 !== 0 & n % 2 !== 0){
+            return true
+        } else {
+            return false
+        };
     },
     
     // Calculate the golden ratio.
@@ -21,13 +46,30 @@ var code = {
     // Let e = c + d, then the ratio d / e is closer to the golden ratio.
     // If you continue this process, the result will trend towards the golden ratio.
     goldenRatio: function(a, b) {
-        throw new Error("Not Implemented");
+        var ratio = a / b;
+
+        var c = a + b;
+        c = b / c
+
+        var d = b + c;
+        d = c / d
+        for (i = 0; i < 5; i++) {
+            var dummy
+        }
+
+        return d
     },
 
     // Give the nth Fibionacci number
     // Starting with 1 and 1, a Fibionacci number is the sum of the previous two.
     fibionacci: function(n) {
-        throw new Error("Not Implemented");
+        if (n === 0){
+            return 0;
+        } else if (n <= 2){
+            return 1;
+        } else {
+            return this.fibionacci(n-1) + this.fibionacci(n-2);
+        }        
     },
 
     // Give the square root of a number
