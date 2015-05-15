@@ -87,11 +87,7 @@ var code = {
         // csrf: http://oeis.org/A002193
 
         /* does not work within 5000ms */
-        var root;
-        while(root * root !== n){
-            root += 0.0004
-        }
-        return root;
+        return Math.pow(n, 0.5)
     }
 };
 module.exports = code;
