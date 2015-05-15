@@ -11,9 +11,13 @@ var code = {
         var sentence = sentence.split(' ');
 
         for (var i = offset; i < sentence.length; i += n) {
+            
+            var splitWord;
+            var capitalizedLetter;
             var capitalizedWord;
-            var splitWord = sentence[i].split('');
-            var capitalizedLetter = splitWord[0].toUpperCase();
+
+            splitWord = sentence[i].split('');
+            capitalizedLetter = splitWord[0].toUpperCase();
 
             splitWord[0] = capitalizedLetter;
             capitalizedWord = splitWord.join('');
@@ -46,18 +50,21 @@ var code = {
     // Let e = c + d, then the ratio d / e is closer to the golden ratio.
     // If you continue this process, the result will trend towards the golden ratio.
     goldenRatio: function(a, b) {
-        var ratio = a / b;
+        var ratio;
+        var ratioCatch = [ ];
+        var n;
 
-        var c = a + b;
-        c = b / c
-
-        var d = b + c;
-        d = c / d
-        for (i = 0; i < 5; i++) {
-            var dummy
+        ratioCatch.push(a);
+        ratioCatch.push(b);
+        
+        while(ratio < 0.61800 && ratio > 0.61806){
+            n = ratioCatch.length;
+            c = ratioCatch[n-1] + ratioCatch[n-2]
+            ratio = ratioCatch[n-1] / c;
+            console.log(ratio);
+            ratioCatch.push(c);
         }
-
-        return d
+        return ratio
     },
 
     // Give the nth Fibionacci number
