@@ -82,12 +82,22 @@ var code = {
     // Using a binary search algorithm, search for the square root of a given number.
     // Do not use the built-in square root function.
     squareRoot: function(n) {
-        // up to four decimal places
-        // http://mathworld.wolfram.com/NewtonsIteration.html
-        // csrf: http://oeis.org/A002193
+        var guess = 2;
+        var divided,
+            sum,
+            average;
+        // for floating point precision : risk infinite loop otherwise
+        var plus = n + 0.001
+        var minus = n - 0.001 
 
-        /* does not work within 5000ms */
-        return Math.pow(n, 0.5)
+        while(guess * guess > plus || guess * guess < minus){
+            divided = n / guess;
+            sum = divided + guess;
+            average = sum / 2;
+            guess = parseFloat(average.toPrecision(12));
+
+        }
+        return parseFloat(guess.toPrecision(4));
     }
 };
 module.exports = code;
