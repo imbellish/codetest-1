@@ -1,8 +1,7 @@
 var code = {
     // Returns "Hello World!"
     helloWorld: function() {
-        var hello = "Hello World!"
-        return hello;
+        return "Hello World!";
     },
 
     // Take a single-spaced <sentence>, and capitalize every <n> word starting with <offset>.
@@ -50,20 +49,20 @@ var code = {
     // Let e = c + d, then the ratio d / e is closer to the golden ratio.
     // If you continue this process, the result will trend towards the golden ratio.
     goldenRatio: function(a, b) {
-        var ratio;
+        var ratio = 0;
         var ratioCatch = [ ];
         var n;
 
         ratioCatch.push(a);
         ratioCatch.push(b);
         
-        while(ratio < 0.61800 && ratio > 0.61806){
+        while(ratio < 0.61800 || ratio > 0.61806){
             n = ratioCatch.length;
             c = ratioCatch[n-1] + ratioCatch[n-2]
             ratio = ratioCatch[n-1] / c;
             ratioCatch.push(c);
         }
-        return ratio
+        return ratio + 1
     },
 
     // Give the nth Fibionacci number
